@@ -1,0 +1,50 @@
+#library file for addrssbook script
+#set -x
+search()
+{
+printf "Search with any of the following Item  Name/Email/PhoneNo"
+read item
+a=`grep -i $item /tmp/addbook.txt`
+if [ $? -eq 0 ];then
+echo $a
+fi
+}
+
+add()
+{
+while :
+do
+echo "Enter Name"
+read name
+echo "Enter EmailID"
+read emailid
+echo "Enter PhoneNo"
+read phno
+echo $name:$emailid:$phno >> /tmp/addbook.txt
+echo "Add more Entries" "Y or N"
+read yesno
+	if [ $yesno != "y" ];then
+	break
+	fi 
+done
+}
+
+remove()
+{
+echo -e " \n Table Content \n"
+#sed "p" -n  /tmp/addbook.txt
+for i in /tmp/addbook.txt
+do
+awk 'BEGIN { FS=":" ; print " User Name       Mail ID        Phno" }{print "| " $1 "  |" $2 "| " $3 }END {print "Total Users :" NR }'  /tmp/addbook.txt
+#echo -e "|"`cut -d : -f1 /tmp/addbook.txt` "|"
+done
+echo "Enter the User Name to delete the corresponding content"
+read name
+echo " \n \nNew table data \n \n"
+sed  '/$name/d' /tmp/addbook.txt
+echo "Do you want to continue \c Y or N"
+read con
+	if [ $con == Y ];then
+	sed -i '/$name/d' /tmp/addbook.txt
+	fi
+}
