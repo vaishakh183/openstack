@@ -1,0 +1,6 @@
+----------------------------------------------------------------
+2017-09-11 16:22:57.286 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.6.1.0 - (938214): instance a816c00e-015e-71c0-3b66-000000041098 
+on database directory /home/vaishakh/.TVC4/database/message   with class loader sun.misc.Launcher$AppClassLoader@807ed688
+
+Database Class Loader started - derby.database.classpath=''
