@@ -1,0 +1,5 @@
+---
+- hosts: openstack
+ tasks:
+  - name: create file
+    file: path=/tmp/test11 state=touch  
