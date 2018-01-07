@@ -1,0 +1,86 @@
+http://www.cyberciti.biz/tips/understanding-linux-unix-umask-value-usage.html
+
+UMASK (User Mask or User file creation MASK) is the default permission or base permissions given when a new file is created on a Linux machine. Most of the Linux d
+istros give 022 (0022) as default UMASK. In other words, it is a system default permissions for newly created files/folders in the machine.
+
+The minimum and maximum UMASK value for a folder is 000 and 777
+
+The minimum and maximum UMASK value for a file is 000 and 666 
+
+Below are the permissions and its values used by UMASK. If you are a Linux/Unix user you will observe these are inverse to actual permissions values when setting up permissions to files/folders with CHMOD command.
+
+0 --Full permissions (Read, Write, Execute)
+1 --Write and read
+2 --Read and execute
+3 --Read only
+4 --Write and execute
+5 --Write only
+6 --Execute onlyadminadmin
+7 --No permissions
+
+--------------
+
+umask is a command that determines the settings of a mask that controls which file permissions are set for files and directories when they are created.
+
+When a user creates a file or a directory under Linux, there is a set of default permission which is applied on those files and directory. These pre-defined premissions are assigned as per the value of default umask.
+
+1.I want all the directories to be created with default permission as 755 and all files with 644 i.e. user have full permission, group and all others have read and execute permission.
+
+A: Use the umask value as 0022
+Calculation
+0777 - 0022 = 0755 (directories)
+0666 - 0022 = 0644 (files)
+
+Run the below command on the terminal
+# umask 0022
+
+------------------
+
+I want all the directories to be created with default permission as 733 and all files with 622 i.e. user have full permission, group and all others have write and execute permission
+A: Use the umask value as 0044
+Calculation
+0777 - 0044 = 0733 (directories)
+0666 - 0044 = 0622 (files)
+
+Run the below command on the terminal
+# umask 0044
+
+------------------
+
+777 - 700 = 077
+666 - 600 = 066
+
+
+ I want all the directories to be created with default permission as 700 and all files with 600 i.e. user have full permission, group and all others have no permission
+A: Use the umask value as 0077
+Calculation
+0777 - 0077 = 0700 (directories)
+0666 - 0066 = 0600 (files)
+
+Run the below command on the terminal
+# umask 0077
+
+--------------------
+
+
+Procedure To Setup Default umask
+
+You can setup umask in /etc/bashrc or /etc/profile file for all users. By default most Linux distro set it to 0022 (022) or 0002 (002). Open /etc/profile or ~/.bashrc file, enter:
+# vi /etc/profile
+
+OR
+$ vi ~/.bashrc
+
+Append/modify following line to setup a new umask:
+umask 022
+
+Save and close the file. Changes will take effect after next login. All UNIX users can override the system umask defaults in their /etc/profile file, ~/.profile (Korn / Bourne shell) ~/.cshrc file (C shells), ~/.bash_profile (Bash shell) or ~/.login file (defines the user’s environment at login).
+
+
+
+777 - 022 = 755
+666 - 022 = 644
+
+777 - 700 = 077
+
+
