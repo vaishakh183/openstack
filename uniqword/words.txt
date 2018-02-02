@@ -1,0 +1,3 @@
+elephant ant deer dog
+cat human lion tiger
+cheeta beer giraffe cat dog

@@ -1,0 +1,102 @@
+
+#####################################################################
+    Health Check Report (CPU,Process,Disk Usage, Memory)
+#####################################################################
+
+
+Hostname         : controller2
+Kernel Version   : 3.10.0-514.el7.x86_64
+Uptime           : 1 day
+Last Reboot Time : 2017-08-18 02:25
+
+
+
+*********************************************************************
+CPU Load - > Threshold < 1 Normal > 1 Caution , > 2 Unhealthy 
+*********************************************************************
+
+
+CPU0 : 0.16
+
+Load Average   :  0.00
+
+Heath Status : Normal
+
+
+*********************************************************************
+                             Process
+*********************************************************************
+
+=> Top memory using processs/application
+
+PID %MEM RSS COMMAND
+1368 12.6 128700 /usr/bin/python2
+1709 10.5 107196 /usr/libexec/mysqld
+1157 4.5 46284 /usr/lib64/erlang/erts-7.3.1.2/bin/beam
+1269 1.6 16712 /usr/sbin/named
+1160 1.6 16348 /usr/bin/python
+679 1.5 15812 /sbin/dhclient
+1184 1.4 14348 /usr/sbin/libvirtd
+594 1.0 10772 /usr/lib/polkit-1/polkitd
+617 1.0 10700 /usr/sbin/NetworkManager
+1504 0.9 9376 /usr/sbin/httpd
+
+=> Top CPU using process/application
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0  125204   3680   2316 S  0.0  0.4   0:12.25 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    3 root      20   0       0      0      0 S  0.0  0.0   0:00.88 ksoftirqd/0
+    6 root      20   0       0      0      0 S  0.0  0.0   0:01.25 kworker/u2:0
+    7 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+    8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh
+    9 root      20   0       0      0      0 S  0.0  0.0   0:00.64 rcu_sched
+   10 root      rt   0       0      0      0 S  0.0  0.0   0:00.53 watchdog/0
+   12 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 khelper
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+
+*********************************************************************
+Disk Usage - > Threshold < 90 Normal > 90% Caution > 95 Unhealthy
+*********************************************************************
+
+/dev/mapper/cl-root / 70% used 1.4G free space
+
+devtmpfs /dev 0% used 486M free space
+
+tmpfs /dev/shm 0% used 497M free space
+
+tmpfs /run 2% used 490M free space
+
+tmpfs /sys/fs/cgroup 0% used 497M free space
+
+/dev/sda1 /boot 14% used 875M free space
+
+tmpfs /run/user/0 0% used 100M free space
+
+
+
+Heath Status
+
+/dev/mapper/cl-root / 		 Normal
+devtmpfs /dev 		 Normal
+tmpfs /dev/shm 		 Normal
+tmpfs /run 		 Normal
+tmpfs /sys/fs/cgroup 		 Normal
+/dev/sda1 /boot 		 Normal
+tmpfs /run/user/0 		 Normal
+
+*********************************************************************
+		     Memory 
+*********************************************************************
+
+=> Physical Memory
+
+Total	Used	Free	%Free
+
+GB	GB 	GB	8%
+
+=> Swap Memory
+
+Total	Used	Free	%Free
+
+GB	GB	GB	100%
+
